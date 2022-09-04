@@ -1,9 +1,16 @@
 // iterators4.rs
 // Execute `rustlings hint iterators4` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
 
 pub fn factorial(num: u64) -> u64 {
+    if num == 0 {
+        1
+    }
+    else {
+        let a = (1..=num).collect::<Vec<u64>>();
+        println!("{:?}", a );
+        a.iter().rfold(1, |total, e| total * e)
+    }
     // Complete this function to return the factorial of num
     // Do not use:
     // - return
@@ -19,6 +26,7 @@ pub fn factorial(num: u64) -> u64 {
 mod tests {
     use super::*;
 
+    
     #[test]
     fn factorial_of_0() {
         assert_eq!(1, factorial(0));
